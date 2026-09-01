@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/spaReact" mode="merge"/>
+    <filter root="/content/spaReact" mode="merge"/>
+    <filter root="/content/dam/spaReact" mode="merge">
+        <exclude pattern="/content/dam/spaReact(/.*)?"/>
+        <include pattern="/content/dam/spaReact/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/spaReact/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/spaReact" mode="merge"/>
+</workspaceFilter>
