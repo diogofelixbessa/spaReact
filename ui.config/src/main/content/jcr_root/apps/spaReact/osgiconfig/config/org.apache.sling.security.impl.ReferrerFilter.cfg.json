@@ -1,0 +1,16 @@
+{
+  "allow.empty": true,
+  "filter.methods": [
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "allow.hosts": [
+    "localhost:4502",
+    "localhost:3000"
+  ],
+  "filter.excluded.paths": [
+    "/bin/spaReact/login",
+    "/bin/spaReact/user-profile"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "sling.auth.requirements": [
+    "-/bin/spaReact"
+  ]
+}

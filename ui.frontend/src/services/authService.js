@@ -1,12 +1,14 @@
-const API_BASE_URL = 'https://spring-boot-jwt-auth-production.up.railway.app/api';
+// Endpoint dos Servlets Java no AEM
+const AUTH_LOGIN_ENDPOINT = '/bin/spaReact/login';
+const USER_PROFILE_ENDPOINT = '/bin/spaReact/user-profile';
 
 export const authService = {
   /**
-   * Realiza login enviando username e password para o endpoint /api/auth/signin
+   * Realiza login enviando as credenciais para o Servlet Java do AEM (/bin/spaReact/login)
    */
   async login(username, password) {
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/signin`, {
+      const response = await fetch(AUTH_LOGIN_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -29,14 +31,14 @@ export const authService = {
       return data;
     } catch (error) {
       if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-        throw new Error('Falha ao conectar com o servidor de autenticação. Verifique sua conexão com a internet.');
+        throw new Error('Falha ao conectar com o servidor AEM (Servlet Java). Verifique se o AEM está em execução.');
       }
       throw error;
     }
   },
 
   /**
-   * Consulta os dados protegidos do usuário via /api/test/user usando o Bearer Token
+   * Consulta os dados protegidos do usuário via Servlet Java do AEM (/bin/spaReact/user-profile)
    */
   async getProtectedUserData() {
     const token = this.getToken();
@@ -44,7 +46,7 @@ export const authService = {
       throw new Error('Usuário não autenticado.');
     }
 
-    const response = await fetch(`${API_BASE_URL}/test/user`, {
+    const response = await fetch(USER_PROFILE_ENDPOINT, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -52,11 +54,13 @@ export const authService = {
       }
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error(`Erro na requisição protegida: Status ${response.status}`);
+      throw new Error(data.message || `Erro na requisição protegida: Status ${response.status}`);
     }
 
-    return await response.json();
+    return data;
   },
 
   /**

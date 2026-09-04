@@ -1,0 +1,6 @@
+{
+  "filter.excluded.paths": [
+    "/bin/spaReact/login",
+    "/bin/spaReact/user-profile"
+  ]
+}
