@@ -6,10 +6,13 @@ Este guia foi criado para ensinar passo a passo como funciona e como implementar
 
 ## 🗺️ 1. Visão Geral da Arquitetura
 
-### 🇧🇷 Diagrama de Arquitetura (Português)
+### 🇧🇷 Opção 1: Diagrama Traduzido (Layout Idêntico ao Inglês)
+![Fluxo de Autenticação em Português - Layout Fiel](./docs/images/fluxo_autenticacao_aem_react_pt_fiel.jpg)
+
+### 🇧🇷 Opção 2: Diagrama Traduzido (Versão Simplificada)
 ![Fluxo de Autenticação em Português](./docs/images/fluxo_autenticacao_aem_react_pt.jpg)
 
-### 🇺🇸 Architecture Diagram (English)
+### 🇺🇸 Opção 3: Architecture Diagram (English Original)
 ![Authentication Flow in English](./docs/images/fluxo_autenticacao_aem_react_en.jpg)
 
 ### 🔄 Fluxo Resumido em 5 Etapas:
