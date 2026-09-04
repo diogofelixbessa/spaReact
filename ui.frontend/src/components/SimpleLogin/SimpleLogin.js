@@ -59,25 +59,13 @@ export const SimpleLogin = (props) => {
     }
   };
 
-  const handleTestProtectedEndpoint = async () => {
-    setIsLoading(true);
-    setStatusMessage(null);
-
-    try {
-      const responseData = await authService.getProtectedUserData();
-      setProtectedData(responseData);
-      setStatusMessage({
-        type: 'info',
-        text: 'Requisição para a rota protegida (/api/test/user) executada com sucesso!'
-      });
-    } catch (error) {
-      setStatusMessage({
-        type: 'error',
-        text: error.message || 'Erro ao consultar rota protegida.'
-      });
-    } finally {
-      setIsLoading(false);
-    }
+  const handleTestProtectedEndpoint = () => {
+    // Redireciona para a página dados-cliente criada no AEM preservando o modo editor se estiver presente
+    const isEditor = window.location.pathname.includes('/editor.html');
+    const targetUrl = isEditor
+      ? '/editor.html/content/spaReact/us/en/dados-cliente.html'
+      : '/content/spaReact/us/en/dados-cliente.html';
+    window.location.href = targetUrl;
   };
 
   const handleLogout = () => {
@@ -120,23 +108,13 @@ export const SimpleLogin = (props) => {
               </p>
             </div>
 
-            {protectedData && (
-              <div className="simple-login-alert info">
-                <strong>Resposta da API Protegida:</strong>
-                <pre style={{ margin: '8px 0 0 0', fontSize: '12px', whiteSpace: 'pre-wrap' }}>
-                  {JSON.stringify(protectedData, null, 2)}
-                </pre>
-              </div>
-            )}
-
             <div className="simple-login-actions">
               <button
                 type="button"
                 className="simple-login-btn-secondary"
                 onClick={handleTestProtectedEndpoint}
-                disabled={isLoading}
               >
-                {isLoading ? 'Verificando...' : 'Testar Rota Protegida'}
+                🔒 Testar Rota Protegida (Ir para Dados do Cliente) ➔
               </button>
               <button
                 type="button"

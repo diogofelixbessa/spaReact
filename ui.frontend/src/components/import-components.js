@@ -21,6 +21,7 @@ import './ExperienceFragment/ExperienceFragment';
 import './ExternalApi/ExternalApi';
 import './Login/Login';
 import './SimpleLogin/SimpleLogin';
+import './DadosCliente/DadosCliente';
 
 import {MapTo} from '@adobe/aem-react-editable-components';
 
