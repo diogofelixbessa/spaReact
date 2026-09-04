@@ -6,7 +6,13 @@ Este guia foi criado para ensinar passo a passo como funciona e como implementar
 
 ## 🗺️ 1. Visão Geral da Arquitetura
 
-O fluxo completo funciona em 5 etapas principais:
+### 🇧🇷 Diagrama de Arquitetura (Português)
+![Fluxo de Autenticação em Português](./docs/images/fluxo_autenticacao_aem_react_pt.jpg)
+
+### 🇺🇸 Architecture Diagram (English)
+![Authentication Flow in English](./docs/images/fluxo_autenticacao_aem_react_en.jpg)
+
+### 🔄 Fluxo Resumido em 5 Etapas:
 
 ```
 [ Usuário no Navegador ]
